@@ -158,3 +158,8 @@ resource "aws_s3_bucket" "demo3" {
     }
   }
 }
+
+resource "aws_s3_bucket" "demo5" {
+  #no tag
+  bucket = "${local.resource_prefix.value}-demo5"
+}
