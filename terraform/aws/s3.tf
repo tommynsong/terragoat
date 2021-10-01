@@ -146,6 +146,7 @@ resource "aws_s3_bucket" "demo1" {
   tags = {
     Name        = "${local.resource_prefix.value}-demo1"
     Environment = local.resource_prefix.value
+    yor_trace   = "e45ee79b-74da-4851-aa99-875edc9dfcaa"
   }
   logging {
     target_bucket = "${aws_s3_bucket.logs.id}"
@@ -169,6 +170,7 @@ resource "aws_s3_bucket" "demo2" {
   tags = {
     Name        = "${local.resource_prefix.value}-demo2"
     Environment = local.resource_prefix.value
+    yor_trace   = "114ec729-ffef-4f49-aa56-05fe5620352a"
   }
   versioning {
     enabled = true
@@ -192,6 +194,7 @@ resource "aws_s3_bucket" "demo3" {
   tags = {
     Name        = "${local.resource_prefix.value}-demo3"
     Environment = local.resource_prefix.value
+    yor_trace   = "f19953d8-09d8-4269-91b7-84c7d8c46dd3"
   }
   versioning {
     enabled = true

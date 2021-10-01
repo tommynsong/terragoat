@@ -8,6 +8,16 @@ module "vpc" {
   stage      = var.stage
   name       = var.name
   cidr_block = "172.16.0.0/16"
+  tags = {
+    git_commit           = "f1a3726cb53d99856f4e4a77388f3756ba9969ce"
+    git_file             = "terraform-aws-ec2-bastion-server-master/examples/complete/main.tf"
+    git_last_modified_at = "2020-11-09 16:45:37"
+    git_last_modified_by = "68634672+guyeisenkot@users.noreply.github.com"
+    git_modifiers        = "68634672+guyeisenkot"
+    git_org              = "tommynsong"
+    git_repo             = "terragoat"
+    yor_trace            = "b4a3a3e3-1fea-4ddf-a74f-a582bfbcef23"
+  }
 }
 
 module "subnets" {
@@ -21,6 +31,16 @@ module "subnets" {
   cidr_block           = module.vpc.vpc_cidr_block
   nat_gateway_enabled  = false
   nat_instance_enabled = false
+  tags = {
+    git_commit           = "f1a3726cb53d99856f4e4a77388f3756ba9969ce"
+    git_file             = "terraform-aws-ec2-bastion-server-master/examples/complete/main.tf"
+    git_last_modified_at = "2020-11-09 16:45:37"
+    git_last_modified_by = "68634672+guyeisenkot@users.noreply.github.com"
+    git_modifiers        = "68634672+guyeisenkot"
+    git_org              = "tommynsong"
+    git_repo             = "terragoat"
+    yor_trace            = "832707d7-1bd6-4a7d-9db1-17b5bb407db6"
+  }
 }
 
 module "aws_key_pair" {
@@ -31,6 +51,16 @@ module "aws_key_pair" {
   attributes          = ["ssh", "key"]
   ssh_public_key_path = var.ssh_key_path
   generate_ssh_key    = var.generate_ssh_key
+  tags = {
+    git_commit           = "f1a3726cb53d99856f4e4a77388f3756ba9969ce"
+    git_file             = "terraform-aws-ec2-bastion-server-master/examples/complete/main.tf"
+    git_last_modified_at = "2020-11-09 16:45:37"
+    git_last_modified_by = "68634672+guyeisenkot@users.noreply.github.com"
+    git_modifiers        = "68634672+guyeisenkot"
+    git_org              = "tommynsong"
+    git_repo             = "terragoat"
+    yor_trace            = "7362a1eb-4b22-428d-82b0-62f113b9b145"
+  }
 }
 
 module "ec2_bastion" {
