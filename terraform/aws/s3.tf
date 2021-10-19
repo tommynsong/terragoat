@@ -211,3 +211,27 @@ resource "aws_s3_bucket" "demo3" {
     }
   }
 }
+
+resource "aws_s3_bucket" "demo4" {
+  #no SSE 
+  bucket = "${local.resource_prefix.value}-demo4"
+  tags = {
+    Name        = "${local.resource_prefix.value}-demo4"
+    Environment = local.resource_prefix.value
+    yor_trace   = "f19953d8-09d8-4269-91b7-84c7d8c46dd3"
+  }
+  versioning {
+    enabled = true
+  }
+  logging {
+    target_bucket = "${aws_s3_bucket.logs.id}"
+    target_prefix = "demo3/"
+  }
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
+}
