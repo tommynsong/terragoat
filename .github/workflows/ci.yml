@@ -16,19 +16,11 @@ jobs:
    bridgecrew:
     runs-on: ubuntu-latest
     steps:
-    - name: Run Bridgecrew 
-      id: Bridgecrew
-      uses: bridgecrewio/bridgecrew-action@master
-      with:
-        api-key: ${{ secrets.BRIDGECREW_API_KEY }}
-        soft-fail: true
-    - name: Expose report
-      uses: actions/upload-artifact@v2
-      with:
-        name: SARIF results
-        path: results.sarif
-    # Uploads results.sarif to GitHub repository using the upload-sarif action
-    - uses: github/codeql-action/upload-sarif@v1
-      with:
-        # Path to SARIF file relative to the root of the repository
-        sarif_file: results.sarif
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run Bridgecrew 
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master 
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
