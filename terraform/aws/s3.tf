@@ -4,7 +4,6 @@ resource "aws_s3_bucket" "data" {
   # bucket does not have access logs
   # bucket does not have versioning
   bucket        = "${local.resource_prefix.value}-data"
-  acl           = "public-read"
   force_destroy = true
   tags = {
     Name                 = "${local.resource_prefix.value}-data"
@@ -19,9 +18,10 @@ resource "aws_s3_bucket" "data" {
     yor_trace            = "fc8c2d7a-1997-4fc2-95c1-277cba5c2a38"
   }
   versioning {
-    enabled = "${var.versioning_enabled}"
+    enabled = var.versioning_enabled
   }
 }
+
 
 resource "aws_s3_bucket_object" "data_object" {
   bucket = aws_s3_bucket.data.id
@@ -95,7 +95,7 @@ resource "aws_s3_bucket" "data_science" {
     enabled = true
   }
   logging {
-    target_bucket = "${aws_s3_bucket.logs.id}"
+    target_bucket = aws_s3_bucket.logs.id
     target_prefix = "log/"
   }
   force_destroy = true
@@ -121,7 +121,7 @@ resource "aws_s3_bucket" "logs" {
     rule {
       apply_server_side_encryption_by_default {
         sse_algorithm     = "aws:kms"
-        kms_master_key_id = "${aws_kms_key.logs_key.arn}"
+        kms_master_key_id = aws_kms_key.logs_key.arn
       }
     }
   }
@@ -149,7 +149,7 @@ resource "aws_s3_bucket" "demo1" {
     yor_trace   = "e45ee79b-74da-4851-aa99-875edc9dfcaa"
   }
   logging {
-    target_bucket = "${aws_s3_bucket.logs.id}"
+    target_bucket = aws_s3_bucket.logs.id
     target_prefix = "demo1/"
   }
   server_side_encryption_configuration {
@@ -176,7 +176,7 @@ resource "aws_s3_bucket" "demo2" {
     enabled = true
   }
   logging {
-    target_bucket = "${aws_s3_bucket.logs.id}"
+    target_bucket = aws_s3_bucket.logs.id
     target_prefix = "demo2/"
   }
   server_side_encryption_configuration {
@@ -200,7 +200,7 @@ resource "aws_s3_bucket" "demo3" {
     enabled = true
   }
   logging {
-    target_bucket = "${aws_s3_bucket.logs.id}"
+    target_bucket = aws_s3_bucket.logs.id
     target_prefix = "demo3/"
   }
   server_side_encryption_configuration {
