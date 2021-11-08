@@ -22,11 +22,11 @@ resource "aws_security_group" "sg" {
 
   tags = {
     Name                 = "allow_ssh"
-    git_commit           = "b829f155d3446ceb1ae6b472df94f23787459f70"
+    git_commit           = "baaa7dd61425ec3c12755ce91ad71151664319fe"
     git_file             = "terraform/aws/modules/security_group/main.tf"
-    git_last_modified_at = "2020-12-02 20:40:15"
-    git_last_modified_by = "mike@bridgecrew.io"
-    git_modifiers        = "mike"
+    git_last_modified_at = "2021-11-03 20:59:44"
+    git_last_modified_by = "tommynsong@gmail.com"
+    git_modifiers        = "mike/tommynsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "02dd6ff5-f153-4c6d-bc14-24ca7414b0b4"

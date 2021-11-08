@@ -151,11 +151,11 @@ resource "aws_iam_instance_profile" "ec2profile" {
   name = "${local.resource_prefix.value}-profile"
   role = aws_iam_role.ec2role.name
   tags = {
-    git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
+    git_commit           = "baaa7dd61425ec3c12755ce91ad71151664319fe"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2021-10-20 04:10:46"
-    git_last_modified_by = "rsong@paloaltonetworks.com"
-    git_modifiers        = "rsong"
+    git_last_modified_at = "2021-11-03 20:59:44"
+    git_last_modified_by = "tommynsong@gmail.com"
+    git_modifiers        = "nimrodkor/tommynsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "a9e84db7-31c4-4440-a474-2802c7181967"
@@ -393,11 +393,11 @@ sudo chown root:root /var/www/html/index.php
 EOF
   tags = {
     Name                 = "${local.resource_prefix.value}-dbapp"
-    git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
+    git_commit           = "baaa7dd61425ec3c12755ce91ad71151664319fe"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2021-10-20 04:10:46"
-    git_last_modified_by = "rsong@paloaltonetworks.com"
-    git_modifiers        = "rsong"
+    git_last_modified_at = "2021-11-03 20:59:44"
+    git_last_modified_by = "tommynsong@gmail.com"
+    git_modifiers        = "nimrodkor/tommynsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "b3b25ba1-64e2-46d9-a359-49848c7d43ed"
