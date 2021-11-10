@@ -4,7 +4,6 @@ resource "aws_s3_bucket" "data" {
   # bucket does not have access logs
   # bucket does not have versioning
   bucket        = "${local.resource_prefix.value}-data"
-  acl           = "public-read"
   force_destroy = true
   tags = {
     Name                 = "${local.resource_prefix.value}-data"
@@ -21,7 +20,10 @@ resource "aws_s3_bucket" "data" {
   versioning {
     enabled = "${var.versioning_enabled}"
   }
+  hosted_zone_id = "Z3AQBSTGFYJSTF"
+  request_payer = "BucketOwner"
 }
+
 
 resource "aws_s3_bucket_object" "data_object" {
   bucket = aws_s3_bucket.data.id
@@ -90,8 +92,8 @@ resource "aws_s3_bucket" "operations" {
 resource "aws_s3_bucket" "data_science" {
   # bucket is not encrypted
   bucket = "${local.resource_prefix.value}-data-science"
-  acl    = "private"
   versioning {
+    mfa_delete = false
     enabled = true
   }
   logging {
@@ -109,7 +111,10 @@ resource "aws_s3_bucket" "data_science" {
     git_repo             = "terragoat"
     yor_trace            = "25565a41-2c9e-45f2-a9e9-6c15b7afcfb6"
   }
+  hosted_zone_id = "Z3AQBSTGFYJSTF"
+  request_payer = "BucketOwner"
 }
+
 
 resource "aws_s3_bucket" "logs" {
   bucket = "${local.resource_prefix.value}-logs"
