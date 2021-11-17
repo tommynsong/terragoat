@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "data" {
     yor_trace            = "fc8c2d7a-1997-4fc2-95c1-277cba5c2a38"
   }
   versioning {
-    enabled = "${var.versioning_enabled}"
+    enabled = true}"
   }
 }
 
@@ -61,6 +61,9 @@ resource "aws_s3_bucket" "financials" {
     yor_trace            = "cecbef60-a2ea-4710-9d45-b865340e6095"
   }
 
+  versioning {
+    enabled = true
+  }
 }
 
 resource "aws_s3_bucket" "operations" {
