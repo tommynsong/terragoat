@@ -25,9 +25,9 @@ resource "aws_db_instance" "default" {
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "fbcbf0b9-8ede-4eb1-bdc1-7d5abcb42881"
@@ -35,7 +35,7 @@ resource "aws_db_instance" "default" {
 
   # Ignore password changes from tf plan diff
   lifecycle {
-    ignore_changes = ["password"]
+    ignore_changes = [password]
   }
 }
 
@@ -50,9 +50,9 @@ resource "aws_db_option_group" "default" {
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "fc499810-8ac3-4807-bd72-8d55904a02e8"
@@ -81,9 +81,9 @@ resource "aws_db_parameter_group" "default" {
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "d729e4b9-f8bc-4d0d-81f4-c226191ad170"
@@ -100,9 +100,9 @@ resource "aws_db_subnet_group" "default" {
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "3ac7f6bf-120a-496c-9028-2638b399e8b6"
@@ -118,9 +118,9 @@ resource "aws_security_group" "default" {
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "f8a42a90-11ea-42e1-8f25-aa0375ff1632"
@@ -142,20 +142,20 @@ resource "aws_security_group_rule" "egress" {
   to_port           = 0
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = "${aws_security_group.default.id}"
+  security_group_id = aws_security_group.default.id
 }
 
 
 ### EC2 instance 
 resource "aws_iam_instance_profile" "ec2profile" {
   name = "${local.resource_prefix.value}-profile"
-  role = "${aws_iam_role.ec2role.name}"
+  role = aws_iam_role.ec2role.name
   tags = {
-    git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
+    git_commit           = "baaa7dd61425ec3c12755ce91ad71151664319fe"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-11-03 20:59:44"
+    git_last_modified_by = "tommynsong@gmail.com"
+    git_modifiers        = "nimrodkor/tommynsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "a9e84db7-31c4-4440-a474-2802c7181967"
@@ -187,9 +187,9 @@ EOF
     Environment          = local.resource_prefix.value
     git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-10-20 04:10:46"
+    git_last_modified_by = "rsong@paloaltonetworks.com"
+    git_modifiers        = "rsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "ee26bbfe-daea-4177-8be8-b15279a21401"
@@ -241,7 +241,7 @@ resource "aws_instance" "db_app" {
 
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
-  subnet_id = "${aws_subnet.web_subnet.id}"
+  subnet_id = aws_subnet.web_subnet.id
   user_data = <<EOF
 #! /bin/bash
 ### Config from https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
@@ -393,11 +393,11 @@ sudo chown root:root /var/www/html/index.php
 EOF
   tags = {
     Name                 = "${local.resource_prefix.value}-dbapp"
-    git_commit           = "d68d2897add9bc2203a5ed0632a5cdd8ff8cefb0"
+    git_commit           = "baaa7dd61425ec3c12755ce91ad71151664319fe"
     git_file             = "terraform/aws/db-app.tf"
-    git_last_modified_at = "2020-06-16 14:46:24"
-    git_last_modified_by = "nimrodkor@gmail.com"
-    git_modifiers        = "nimrodkor"
+    git_last_modified_at = "2021-11-03 20:59:44"
+    git_last_modified_by = "tommynsong@gmail.com"
+    git_modifiers        = "nimrodkor/tommynsong"
     git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "b3b25ba1-64e2-46d9-a359-49848c7d43ed"
