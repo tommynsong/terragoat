@@ -18,9 +18,33 @@ resource "aws_s3_bucket" "data" {
     yor_trace            = "fc8c2d7a-1997-4fc2-95c1-277cba5c2a38"
   }
   versioning {
-    enabled = var.versioning_enabled
+    enabled = true
   }
 }
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "data" {
+  bucket = aws_s3_bucket.data.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "data" {
+  bucket = aws_s3_bucket.data.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
+}
+
 
 
 resource "aws_s3_bucket_object" "data_object" {
