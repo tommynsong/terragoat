@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "data" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "fc8c2d7a-1997-4fc2-95c1-277cba5c2a38"
   }
@@ -33,6 +33,11 @@ resource "aws_s3_bucket" "data" {
 
 resource "aws_s3_bucket" "data_log_bucket" {
   bucket = "data-log-bucket"
+  tags = {
+    git_org   = "tommynsong"
+    git_repo  = "terragoat"
+    yor_trace = "fb6fd2cd-2d39-44c6-96a7-e822d4e8fd75"
+  }
 }
 
 resource "aws_s3_bucket_logging" "data" {
@@ -55,7 +60,7 @@ resource "aws_s3_bucket_object" "data_object" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "b77af90c-712d-4209-90ad-d46815ab3eb7"
   }
@@ -76,7 +81,7 @@ resource "aws_s3_bucket" "financials" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "cecbef60-a2ea-4710-9d45-b865340e6095"
   }
@@ -86,6 +91,11 @@ resource "aws_s3_bucket" "financials" {
 
 resource "aws_s3_bucket" "financials_log_bucket" {
   bucket = "financials-log-bucket"
+  tags = {
+    git_org   = "tommynsong"
+    git_repo  = "terragoat"
+    yor_trace = "49747929-447c-44f6-8230-e32d015004e6"
+  }
 }
 
 resource "aws_s3_bucket_logging" "financials" {
@@ -102,7 +112,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "financials" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
@@ -133,7 +143,7 @@ resource "aws_s3_bucket" "operations" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "e62dfbc0-cc44-408b-a26a-13938d22e2f0"
   }
@@ -143,6 +153,11 @@ resource "aws_s3_bucket" "operations" {
 
 resource "aws_s3_bucket" "operations_log_bucket" {
   bucket = "operations-log-bucket"
+  tags = {
+    git_org   = "tommynsong"
+    git_repo  = "terragoat"
+    yor_trace = "2e163441-11a0-4725-9217-93b6929f5539"
+  }
 }
 
 resource "aws_s3_bucket_logging" "operations" {
@@ -159,7 +174,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "operations" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
@@ -182,7 +197,7 @@ resource "aws_s3_bucket" "data_science" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "25565a41-2c9e-45f2-a9e9-6c15b7afcfb6"
   }
@@ -211,7 +226,7 @@ resource "aws_s3_bucket" "logs" {
     git_last_modified_at = "2020-06-16 14:46:24"
     git_last_modified_by = "nimrodkor@gmail.com"
     git_modifiers        = "nimrodkor"
-    git_org              = "try-bridgecrew"
+    git_org              = "tommynsong"
     git_repo             = "terragoat"
     yor_trace            = "ce72f84f-4cb6-4f67-b540-54d7e998df19"
   }
@@ -220,6 +235,11 @@ resource "aws_s3_bucket" "logs" {
 
 resource "aws_s3_bucket" "logs_log_bucket" {
   bucket = "logs-log-bucket"
+  tags = {
+    git_org   = "tommynsong"
+    git_repo  = "terragoat"
+    yor_trace = "da363a0d-dd26-465e-921c-68aa9032fcf6"
+  }
 }
 
 resource "aws_s3_bucket_logging" "logs" {
@@ -237,6 +257,8 @@ resource "aws_s3_bucket" "demo1" {
     Name        = "${local.resource_prefix.value}-demo1"
     Environment = local.resource_prefix.value
     yor_trace   = "e45ee79b-74da-4851-aa99-875edc9dfcaa"
+    git_org     = "tommynsong"
+    git_repo    = "terragoat"
   }
   logging {
     target_bucket = "${aws_s3_bucket.logs.id}"
@@ -261,6 +283,8 @@ resource "aws_s3_bucket" "demo2" {
     Name        = "${local.resource_prefix.value}-demo2"
     Environment = local.resource_prefix.value
     yor_trace   = "114ec729-ffef-4f49-aa56-05fe5620352a"
+    git_org     = "tommynsong"
+    git_repo    = "terragoat"
   }
   versioning {
     enabled = true
@@ -285,6 +309,8 @@ resource "aws_s3_bucket" "demo3" {
     Name        = "${local.resource_prefix.value}-demo3"
     Environment = local.resource_prefix.value
     yor_trace   = "f19953d8-09d8-4269-91b7-84c7d8c46dd3"
+    git_org     = "tommynsong"
+    git_repo    = "terragoat"
   }
   versioning {
     enabled = true
