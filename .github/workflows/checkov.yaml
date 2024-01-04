@@ -1,4 +1,4 @@
-name: build
+name: Checkov
 on:
   push:
     branches:
