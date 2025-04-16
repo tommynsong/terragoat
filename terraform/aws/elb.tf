@@ -36,4 +36,7 @@ resource "aws_elb" "weblb" {
     git_repo             = "terragoat"
     yor_trace            = "9a19ccdb-03ff-4893-9063-75a03294b33a"
   }
+  availability_zones = ["us-east-1a"]
+  internal = false
+  source_security_group = "239780908821/239780908821-panw-pan-lab-dev-rsong-sg"
 }
