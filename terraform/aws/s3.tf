@@ -33,6 +33,9 @@ resource "aws_s3_bucket" "data" {
 
 resource "aws_s3_bucket" "data_log_bucket" {
   bucket = "data-log-bucket"
+  tags = {
+    yor_trace = "f0841b3d-654c-481a-b2f7-4ea3782140d3"
+  }
 }
 
 resource "aws_s3_bucket_logging" "data" {
@@ -86,6 +89,9 @@ resource "aws_s3_bucket" "financials" {
 
 resource "aws_s3_bucket" "financials_log_bucket" {
   bucket = "financials-log-bucket"
+  tags = {
+    yor_trace = "87c06746-a129-4f41-b409-30ee8a32c061"
+  }
 }
 
 resource "aws_s3_bucket_logging" "financials" {
@@ -102,7 +108,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "financials" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
@@ -143,6 +149,9 @@ resource "aws_s3_bucket" "operations" {
 
 resource "aws_s3_bucket" "operations_log_bucket" {
   bucket = "operations-log-bucket"
+  tags = {
+    yor_trace = "0d1d3b0f-cfa7-40f3-b81a-2e79bb4c2cf3"
+  }
 }
 
 resource "aws_s3_bucket_logging" "operations" {
@@ -159,7 +168,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "operations" {
 
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm     = "aws:kms"
+      sse_algorithm = "aws:kms"
     }
   }
 }
@@ -220,6 +229,9 @@ resource "aws_s3_bucket" "logs" {
 
 resource "aws_s3_bucket" "logs_log_bucket" {
   bucket = "logs-log-bucket"
+  tags = {
+    yor_trace = "f80944ae-80c7-4c3f-9674-5cd22758de45"
+  }
 }
 
 resource "aws_s3_bucket_logging" "logs" {
